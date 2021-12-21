@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+
+    }
+
+    html,
+    body {
+        height: 100%;
+        font-family: 'Luckiest Guy', 微軟正黑體, cursive;
+
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(./BG-5.jpg)no-repeat center/cover;
+
+    }
+
+    #container {
+        width: 1180px;
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    }
+
+    .card1 {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        float: left;
+        margin: 17px;
+        transition: transform 1s;
+        border-radius: 50%;
+
+    }
+
+    .card2 {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        float: left;
+        margin: 15px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        transition: transform 1s;
+        border-radius: 50%;
+    }
+
+    .card3 {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        float: left;
+        margin: 17px;
+        transition: transform 1s;
+        border-radius: 50%;
+
+    }
+
+    .card4 {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        float: left;
+        margin: 15px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        transition: transform 1s;
+        border-radius: 50%;
+    }
+
+
+    .card-front1 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./01-1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-back1 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./00.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
+    }
+
+    .card-front2 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./001.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-back2 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./01-1a.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-front3 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./02-1.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-back3 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./00-0.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-front4 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./001.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .card-back4 {
+        width: 100%;
+        height: 100%;
+        background-image: url(./01-1a.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+
+    .card-open {
+        transform: rotateY(180deg);
+    }
+
+    h1 {
+        font-size: 5rem;
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        text-shadow: 5px 5px 0 rgb(207, 55, 55);
+    }
+</style>
+
+<body>
+    <div id="container">
+        <h1>Color vision examination</h1>
+        <div id="game1"></div>
+        <div id="game2" style="display: none;"></div>
+    </div>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let score = 0
+        Swal.fire(
+            'Color vision examination',
+            '色盲翻牌檢測,請翻出相對應的數字。',
+            'warning'
+        )
+        // 第一關
+        for (let i = 0; i < 5; i++) {
+            $('#game1').append(`
+        <div class="card1">
+            <div class="card-front1"></div>
+            <div class="card-back1"></div>
+        </div>
+        `)
+        }
+        for (let i = 0; i < 9; i++) {
+            $('#game1').append(`
+        <div class="card2">
+            <div class="card-front2"></div>
+            <div class="card-back2"></div>
+        </div>
+        `)
+        }
+        // 第二關
+        for (let i = 0; i < 5; i++) {
+            $('#game2').append(`
+        <div class="card3">
+            <div class="card-front3"></div>
+            <div class="card-back3"></div>
+        </div>
+        `)
+        }
+        for (let i = 0; i < 9; i++) {
+            $('#game2').append(`
+        <div class="card4">
+            <div class="card-front4"></div>
+            <div class="card-back4"></div>
+        </div>
+        `)
+        }
+        // 設定
+        for (let i = 0; i < 5; i++) {
+            const num = i + 1
+            $('.card1').eq(i).find('.card-front1').css('background-image', `url(./01-${num}.png)`)
+            $('.card1').eq(i).attr('data-card1', num)
+            $('.card3').eq(i).find('.card-front3').css('background-image', `url(./02-${num}.png)`)
+            $('.card3').eq(i).attr('data-card3', num)
+
+            const target = Math.round(Math.random() * 4)
+            $('.card1').eq(target).insertAfter($('.card1').eq(i))
+            $('.card3').eq(target).insertAfter($('.card3').eq(i))
+        }
+        for (let i = 0; i < 9; i++) {
+            const num = i + 1
+            $('.card2').eq(i).find('.card-back2').css('background-image', `url(./01-${num}a.png)`)
+            $('.card2').eq(i).attr('data-card2', num)
+            $('.card4').eq(i).find('.card-back4').css('background-image', `url(./02-${num}a.png)`)
+            $('.card4').eq(i).attr('data-card4', num)
+
+            const target = Math.round(Math.random() * 8)
+            $('.card2').eq(target).insertAfter($('.card2').eq(i))
+            $('.card4').eq(target).insertAfter($('.card4').eq(i))
+        }
+
+        // 翻牌
+        $('#game1').on('click', '.card1, .card2', function () {
+            if ($('.card-open').length < 2 && !$(this).hasClass('card-open')) {
+                $(this).addClass('card-open')
+            }
+            // 如果翻開兩張了
+            if ($('.card-open').length === 2) {
+                if ($('.card-open').eq(0).attr('data-card1') === $('.card-open').eq(1).attr('data-card2')) {
+                    $(this).find('.card-front2').css('background-image', `url(./002.gif)`)
+                    $('.card-open').addClass('card-ok')
+                    $('.card-open .card-front1').fadeTo(1000, 0)
+                    $('.card-open .card-front2').fadeTo(1000, 0)
+                    $('.card-open .card-back1').fadeTo(1000, 0)
+                    $('.card-open .card-back2').fadeTo(1000, 0)
+                }
+                if ($('.card-open').eq(0).attr('data-card1') !== $('.card-open').eq(1).attr('data-card2')) {
+                    score++
+                    console.log(score)
+                }
+                setTimeout(() => {
+                    $('.card-open').removeClass('card-open')
+                    if(score >= 5){
+                        Swal.fire({
+                            title: '你的眼睛不太好QQ...',
+                            text:'建議去眼科檢查一下',
+                            confirmButtonText: '在測驗一次',
+                            showLoaderOnConfirm: true,
+                            preConfirm:() => {
+                            location.reload()
+                            }
+                        })
+                        
+                    }
+                    if ($('.card-ok').length === 10) {
+                        $('#game1').css('display', 'none')
+                        $('#game2').css('display', 'block')
+                        Swal.fire({
+                            title: '下一題',
+                        })
+                    }
+                }, 500)
+            }
+        })
+
+        $('#game2').on('click', '.card3, .card4', function () {
+            // 最多只能翻兩張牌，且這張牌還沒翻開
+            if ($('.card-open').length < 2 && !$(this).hasClass('card-open')) {
+                $(this).addClass('card-open')
+            }
+            if ($('.card-open').length === 2) {
+                if ($('.card-open').eq(0).attr('data-card3') === $('.card-open').eq(1).attr('data-card4')) {
+                    $(this).find('.card-front4').css('background-image', `url(./002.gif)`)
+                    $('.card-open').addClass('card-ok')
+                    // 將 card-front 淡出而不是 .card，因為對 card 淡出會把 3d 壓平
+                    $('.card-open .card-front3').fadeTo(1000, 0)
+                    $('.card-open .card-front4').fadeTo(1000, 0)
+                    $('.card-open .card-back3').fadeTo(1000, 0)
+                    $('.card-open .card-back4').fadeTo(1000, 0)
+                }
+                if ($('.card-open').eq(0).attr('data-card3') !== $('.card-open').eq(1).attr('data-card4')) {
+                    score++
+                    console.log(score)
+                }
+
+                setTimeout(() => {
+
+                    $('.card-open').removeClass('card-open')
+                    if(score >= 5){
+                        Swal.fire({
+                            title: '你的眼睛不太好QQ...',
+                            text:'建議去眼科檢查一下'
+                        })
+                    }
+                    if ($('.card-ok').length === 20) {
+                        Swal.fire({
+                            title: '過關'
+                        })
+                    }
+                    
+                }, 500)
+            }
+
+        })
+    </script>
+</body>
+
+</html>
